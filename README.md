@@ -1,23 +1,21 @@
-# typescript-npm-package-tpl
+# async-redis-shared
 
-Use this package to create a typescript based package for npm.
+A package that wraps redis-async, it adds a shared redis connection to global.ASYNC_REDIS_SHARED, when i have time i will write a singleton class unless i find another 1 that already does this.
 
-Ensure you update:
-- package.json
-- .github/ISSUE_TEMPLATE files
-- githooks to your style
-- CODE_OF_CONDUCT
-- CONTRIBUTING
-- LICENCE
-- This readme file :)
-- Any anything else.
+Call once as early as possible in your app and await the promise response... then just import it
 
-## ttypescript:
-This uses ttypescript which allows use of the ts-transform-paths plugin found in the tsconfig.
-This basically transforms the output of any shortcuts (eg `@/myfile.ts`) to the full relative paths, without this the shortcuts break as node cannot resolve them.
+## import the connector and connect
+```
+import connect from 'async-redis-shared/connect'
+// Initialize Redis connection
+connect(config.redis).catch((e) => {
+  console.error('Error connecting to redis: ', e);
+});
+```
 
-## CI + Coverage
-This is ready to go with travis and codecov, though you will need to create an account on both of these services and point them to the correct repos, but the travis.yml is about all you should need and the codecov as seen in the package.json file.
-
-## Missed anything?
-Create a pull request and get your input merged in, thanks.
+## use elsewhere in your app
+```
+import client from 'async-redis-shared'
+await client.set('key:unittest', String(now));
+const fetchedVal = await client.get('key:unittest');
+```

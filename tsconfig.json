@@ -26,6 +26,8 @@
   },
   "exclude": [
     "package.json",
-    "__tests__/**"
+    "src/__tests__/**/*",
+    "connect.d.ts",
+    "client.d.ts"
   ]
 }
