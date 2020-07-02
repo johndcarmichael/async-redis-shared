@@ -7,5 +7,5 @@ interface AsyncRedisShared {
 }
 interface Promisified<T = RedisClient> extends Omitted, AsyncRedisShared, Commands<Promise<boolean>> {
 }
-declare const _default: Promisified<RedisClient>;
-export default _default;
+export default function (): Promisified;
+export {};

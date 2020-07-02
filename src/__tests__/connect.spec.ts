@@ -6,7 +6,7 @@ it('should connect', async (done) => {
 });
 
 it('should be able to now set', async () => {
-  const client = require('../client').default;
+  const client = require('../client').default();
   const now = new Date().getTime();
   await client.set('key:unittest', String(now));
   const fetchedVal = await client.get('key:unittest');
@@ -14,7 +14,7 @@ it('should be able to now set', async () => {
 });
 
 it('should be able to now set json and fetch json as proper object', async () => {
-  const client = require('../client').default;
+  const client = require('../client').default();
   const objectA = {
     name: 'bob'
   };

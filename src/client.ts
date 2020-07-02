@@ -1,4 +1,4 @@
-import { Commands, RedisClient } from 'redis';
+import { Commands, RedisClient } from 'redis'
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
@@ -15,9 +15,9 @@ interface Promisified<T = RedisClient>
     AsyncRedisShared,
     Commands<Promise<boolean>> {}
 
-export default ((): Promisified => {
+export default function (): Promisified {
   if (!global.ASYNC_REDIS_SHARED) {
-    throw new Error('No connection to redis yet');
+    throw new Error('No connection to redis yet')
   }
-  return global.ASYNC_REDIS_SHARED;
-})();
+  return global.ASYNC_REDIS_SHARED
+}
