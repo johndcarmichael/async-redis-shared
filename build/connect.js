@@ -11,7 +11,12 @@ exports.default = (clientOpts) => {
                 reject(err);
             };
             global.ASYNC_REDIS_SHARED.getJson = async (key) => {
-                return JSON.parse(String(await global.ASYNC_REDIS_SHARED.get(key)));
+                try {
+                    return JSON.parse(String(await global.ASYNC_REDIS_SHARED.get(key)));
+                }
+                catch (e) {
+                    return null;
+                }
             };
             global.ASYNC_REDIS_SHARED.setJson = async (key, objectToStore) => {
                 await global.ASYNC_REDIS_SHARED.set(key, JSON.stringify(objectToStore));

@@ -1,6 +1,6 @@
 {
   "name": "async-redis-shared",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Async redis wrapper, puts the connection into the global namespace for simple access to a shared connection",
   "licence": "MIT",
   "main": "./client.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/johndcarmichael/<enter repo here>>.git"
+    "url": "https://github.com/johndcarmichael/async-redis-shared.git"
   },
   "keywords": [
     "TypeScript"
