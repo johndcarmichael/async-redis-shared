@@ -1,6 +1,6 @@
 {
   "name": "async-redis-shared",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Async redis wrapper, puts the connection into the global namespace for simple access to a shared connection",
   "licence": "MIT",
   "main": "./client.js",
